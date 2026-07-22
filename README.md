@@ -1,141 +1,257 @@
-# 🧠 Hermes Brain — Jarvis Agent Identity
+# 🧠 JARVIS — The Self-Evolving AI Organism
 
-> *The configuration, identity, and procedural memory of Jarvis — a self-evolving AI workforce running 24/7 on Hermes Agent.*
-
----
-
-## What is Jarvis?
-
-Jarvis is a **personal AI orchestrator** — a CEO-level agent that manages a small workforce of specialized AI profiles. It runs on a VPS, connected to Telegram, processing trading signals, managing system health, and executing tasks autonomously.
-
-Unlike a chatbot you talk to once, Jarvis has **persistent memory**, **reusable skills**, and **24/7 scheduled operations**. It doesn't just answer questions — it does real work.
+> *Not a chatbot. Not a tool. A living system that writes its own code, hires its own workforce, and manages everything — 24/7, on a $40/month VPS.*
 
 ---
 
-## 🏗️ The Foundation
+## What is JARVIS?
 
-### Architecture
+JARVIS is a **self-evolving AI organism** — a metacognitive system that knows what it doesn't know, modifies its own code, installs its own tools, and delegates work to specialized sub-agents.
+
+While most AI agents are single-purpose chatbots or code assistants, JARVIS is a **persistent, autonomous workforce** that:
+
+- 🧠 **Thinks** — Plans before acting, researches before building, validates before deploying
+- 🔧 **Evolves** — Writes new skills, patches old ones, consolidates knowledge
+- 👥 **Delegates** — Spawns specialist agents (Planner, Developer, Researcher, Trader) for parallel work
+- 💾 **Remembers** — Cross-session memory, durable skill library, project context
+- ⏰ **Schedules** — Runs 24/7 cron tasks with zero-token cost when idle
+- 📊 **Observes** — Monitors trading pipelines, system health, and itself
+
+It runs on a **$40/month VPS** — a fraction of what a single Claude Code session costs per hour — and was designed from day one to operate within those constraints.
+
+---
+
+## 🛠️ The Tech Stack — Engineered for Efficiency
+
+### Hardware Foundation
+
+| Component | Spec | Why |
+|-----------|------|-----|
+| **VPS** | $40/month cloud instance | Full root access, 24/7 uptime, Docker support |
+| **RAM** | 8 GB | Enough for Hermes + MT5 + 4 pipeline containers |
+| **Storage** | 80 GB SSD | Skills, sessions, Kanban DB, Docker images |
+| **OS** | Linux (Ubuntu 24.04) | Docker-native, low overhead, cron-ready |
+| **Python** | 3.11 | Hermes Agent runtime |
+| **Node.js** | 20.x | For web dashboards (Ultron) |
+
+### Agent Framework
+
+| Layer | Technology | Why |
+|-------|-----------|-----|
+| **Core** | [Hermes Agent](https://github.com/NousResearch/hermes-agent) by Nous Research | Open-source, self-improving, pluggable — the only agent framework with built-in skill curation, cross-session memory, and cron |
+| **Planning** | MiniMax M2.7 via OpenRouter | 205K context, 2-8× cheaper than alternatives — perfect for broad-context planning sessions |
+| **Execution** | DeepSeek V4 Flash via OpenRouter | 1.05M context, strong reasoning — handles code, trading logic, system changes |
+| **Vision** | Google Gemini 2.0 Flash via OpenRouter | Fast, cheap image analysis for chart signals |
+| **Provider** | OpenRouter | Single API key, automatic failover, model routing — no vendor lock-in |
+
+### Infrastructure
+
+| Component | Choice | Why |
+|-----------|--------|-----|
+| **Containerization** | Docker Compose | Lightweight, reproducible, rebuild-from-source |
+| **Trading Terminal** | MetaTrader 5 (Wine/Docker) | Industry standard for Forex, OctaFX demo |
+| **Message Gateway** | Hermes Gateway (Telegram + API) | Real-time messaging, webhook support |
+| **Task Queue** | Kanban (SQLite) | Durable, async, dispatcher-spawned profiles |
+| **Automation** | Cron (Hermes-native) | Zero-token `no_agent` mode — runs for free |
+| **Version Control** | GitHub (private repos) | Source of truth for brain + trade-copier |
+
+---
+
+## 🏗️ Architecture
+
+### The Self-Evolving File System
+
+JARVIS grows directly on disk. Every skill it writes, every profile it creates, every task it completes becomes part of its permanent memory:
 
 ```
-┌──────────────────────────────────────────────────┐
-│                    JARVIS (CEO)                    │
-│            default profile — DeepSeek V4          │
-│     Orchestrator: memory, delegate, cron, todo    │
-├──────────────────────────────────────────────────┤
-│                                                    │
-│  ┌──────────┐  ┌──────────┐  ┌──────────────────┐ │
-│  │ Planner  │  │Developer │  │   Researcher     │ │
-│  │ minimax  │  │deepseek  │  │    minimax       │ │
-│  │ read-only│  │ code+git │  │  web+browser     │ │
-│  │ Kanban   │  │ skills   │  │  research only   │ │
-│  └──────────┘  └──────────┘  └──────────────────┘ │
-│  ┌──────────┐  ┌─────────────────────────────────┐ │
-│  │  Trader  │  │   Kanban Dispatcher              │ │
-│  │ deepseek │  │   auto-decompose → assign → run  │ │
-│  │ MT5 only │  └─────────────────────────────────┘ │
-│  │ observe  │                                      │
-│  └──────────┘                                      │
-├──────────────────────────────────────────────────┤
-│         Trade-Copier Pipeline (Production)         │
-│  Telegram → Listener → Router → Bridge → MT5      │
-│         (Observe-Only — No Live Orders)            │
-└──────────────────────────────────────────────────┘
+$HOME/
+├── .hermes/
+│   ├── SOUL.md              # Identity — who JARVIS is
+│   ├── config.yaml          # Configuration — how JARVIS runs
+│   ├── .env                 # Secrets — API keys, tokens
+│   ├── skills/              # Procedural memory — 500+ skills, growing daily
+│   │   ├── trading/         #   Trade-copier pipeline knowledge
+│   │   ├── software-development/  #   Workflows, debugging, TDD
+│   │   ├── creative/        #   Design, media, visualization
+│   │   └── ...              #   22+ categories
+│   ├── profiles/            # Workforce identities
+│   │   ├── planner/         #   Phase 1 — read-only, MiniMax
+│   │   ├── developer/       #   Phase 2 — code, DeepSeek
+│   │   ├── researcher/      #   Deep-dive, web + browser
+│   │   └── trader/          #   MT5, observe-only
+│   ├── cron/                # Scheduled tasks (zero-tick scripts)
+│   ├── scripts/             # Automation scripts
+│   ├── kanban.db            # Task queue
+│   ├── state.db             # Session history
+│   └── memories/            # Cross-session facts
+├── trade-copier/            # Production trading pipeline
+│   ├── router/              # Signal routing + LLM parsing
+│   ├── bridge/              # MT5 bridge + order management
+│   ├── listener/            # Telegram channel monitoring
+│   └── mt5/                 # MetaTrader 5 terminal
+└── hermes-brain/            # ← You are here
+    └── README.md
 ```
 
-### Key Design Decisions
+### The Workforce
 
-| Decision | Rationale |
-|----------|-----------|
-| **Two-Phase Workflow** | Plan (Phase 1, read-only, minimax) → Execute (Phase 2, full tools, deepseek). Saves ~80% token cost |
-| **"Execute Jarvis" Gate** | Phase 2 is gated by explicit keyword. Prevents execution drift — the solution stays true to what was approved |
-| **Kanban Dispatcher** | Async task queue: dump a task, the dispatcher assigns it, a profile works on it, results come back to Telegram |
-| **Profile Isolation** | Each profile has its own config, model, tools, and SOUL.md. Planner gets minimax (cheap, 205K ctx). Developer gets deepseek (strong, 1M ctx) |
-| **No-Agent Cron** | Zero-token scheduled tasks. Script runs, if output is empty → silence. Only fires when there's something to report |
+```ascii
+                        ┌──────────────┐
+                        │   JARVIS     │
+                        │   (CEO)      │
+                        │ DeepSeek V4  │
+                        └──────┬───────┘
+                               │ delegates
+              ┌────────────────┼────────────────┐
+              │                │                 │
+       ┌──────┴──────┐  ┌─────┴──────┐  ┌──────┴──────┐
+       │   Planner   │  │ Developer  │  │ Researcher  │
+       │  MiniMax    │  │ DeepSeek   │  │  MiniMax    │
+       │ Read-only   │  │ Code+Git   │  │ Web+Browser │
+       │ Kanban spec │  │ Skills     │  │ Synthesis   │
+       └─────────────┘  └────────────┘  └─────────────┘
+              │
+       ┌──────┴──────┐
+       │   Trader    │
+       │ DeepSeek    │
+       │ MT5+Observe │
+       └─────────────┘
+```
 
----
+### Design Principle: Right Tool for Each Job
 
-## 🛠️ Tech Stack
+> *"Don't use computer vision and mouse clicks to do something an API can do directly."*
 
-| Layer | Technology |
-|-------|-----------|
-| **Agent Framework** | [Hermes Agent](https://github.com/NousResearch/hermes-agent) by Nous Research |
-| **LLM (Planning)** | MiniMax M2.7 (205K context, 2-8x cheaper) |
-| **LLM (Execution)** | DeepSeek V4 Flash (1.05M context) |
-| **LLM (Vision)** | Google Gemini 2.0 Flash |
-| **Provider** | OpenRouter (model routing + failover) |
-| **Infrastructure** | Docker Compose, VPS (Linux) |
-| **Messaging** | Telegram (primary) + API Server |
-| **Database** | SQLite (Kanban, sessions, state) |
-| **Trading** | MetaTrader 5 (OctaFX Demo) |
-| **Automation** | Cron jobs, Kanban dispatcher, GitHub Actions |
+This philosophy drove every architecture decision:
 
----
-
-## ✅ What's Working Well
-
-### Trade-Copier Pipeline (Production)
-- **4 containers** (listener, router, bridge, MT5) running 24/7
-- **6 channels** monitored (4 text + 2 image signals)
-- **Signal parsing** — both text and image-based signals processed correctly
-- **Guardrails** — SL/TP validation, 50-pip min SL on image signals, pending order rules, daily loss cap (20%), per-channel (5) / global (25) trade limits
-- **Delete handling** — deleted messages auto-close trades via /close_channel
-
-### Multi-Agent Workforce
-- **Planner profile** — researching, spec'ing, and handing off on Kanban
-- **Developer profile** — building skills, fixing bugs, deploying containers
-- **Researcher profile** — deep-dive investigations with web + browser
-- **Trader profile** — validating guardrails, observing MT5 connection
-
-### System Improvements
-- **Smart approvals** — auxiliary model auto-approves low-risk commands
-- **Context compression** — triggers at 35% of model limit, keeps sessions cheaper
-- **Curator consolidation** — automatically merges overlapping skills
-- **Kanban→Telegram bridge** — cron job that surfaces completions to DM (zero token cost when idle)
-- **Project context** — `.hermes.md` auto-loads conventions every session
-- **No-agent cron** — zero-token scheduled tasks that only fire on change
+| Task | Tool | Why not something else |
+|------|------|----------------------|
+| Reading trading signals | LLM (text + vision API) | Faster, cheaper, more reliable than browser automation |
+| Code changes | `patch` + `git` | Direct file manipulation, not sed/awk workarounds |
+| Task management | Kanban (SQLite) | No external service, no latency, works offline |
+| System health | Cron + shell scripts | Zero token cost vs. spawning an agent |
+| Research | Web search + browser tools | Structured data, not pixel scraping |
+| Browser automation | (Future: OpenClaw/Codex) | When APIs don't exist — broker portals, website management |
 
 ---
 
-## ⚠️ Challenges & Lessons Learned
+## 🏆 What Makes JARVIS Different
 
+### vs. Claude Code / Codex / OpenClaw
+
+| Capability | Claude Code | Codex | JARVIS |
+|-----------|------------|-------|--------|
+| **Persistent memory** | Session-only | Session-only | ✅ Cross-session (SQLite + files) |
+| **Multi-agent workforce** | ❌ No | ❌ No | ✅ 4 specialist profiles + CEO |
+| **Scheduled tasks** | ❌ No | ❌ No | ✅ Cron with zero-token `no_agent` mode |
+| **Skill curation** | ❌ No | ❌ No | ✅ Auto-consolidates, archives, prunes |
+| **Message platforms** | CLI only | CLI only | ✅ Telegram, API, 20+ platforms |
+| **Provider-agnostic** | Anthropic only | OpenAI only | ✅ 20+ providers, auto-failover |
+| **Self-modification** | Manual | Manual | ✅ Writes skills, patches itself, installs tools |
+| **24/7 operation** | ❌ No | ❌ No | ✅ VPS-hosted, watchdog-protected |
+| **Token budget control** | ❌ No | ❌ No | ✅ Compression threshold, two-phase workflow, model routing |
+| **Cost** | ~$3-10/hr | ~$2-8/hr | **~$40/month all-in** |
+
+### The Three Pillars of a Self-Evolving AI
+
+1. **Metacognition** — JARVIS knows what it doesn't know. When it encounters an unfamiliar task, it researches first, plans second, executes third. It flags uncertainty rather than guessing.
+
+2. **Self-modification** — JARVIS writes its own skills, patches outdated knowledge, and installs new tools. The curator runs in the background, consolidating overlapping skills and archiving stale ones. The file system grows with every session.
+
+3. **Delegation** — JARVIS hires sub-agents. The Planner researches and specs. The Developer builds and deploys. The Researcher investigates and synthesizes. The Trader monitors and validates. The CEO orchestrates.
+
+---
+
+## ⚡ Evolutionary Challenges (That Made Us Stronger)
+
+Building a persistent AI organism on a $40/month VPS meant we couldn't throw money at problems. Every constraint became an innovation.
+
+### The Token Budget Problem
 | Challenge | Solution |
 |-----------|----------|
-| **Router had empty API key** — LLM calls silently failed | Restored `.env` permissions, added `OPENROUTER_API_KEY` properly, rebuilt containers |
-| **Execution drift** — solutions silently diverged from approved plans | Introduced the **"Execute Jarvis"** gate — any error in execution stops, re-plans, and requires fresh approval |
-| **Kanban dispatcher crashes on default profile** | Only assign tasks to specific profiles (developer, researcher, planner, trader) — default profile can't handle dispatched workloads |
-| **Memory limit (2,200 chars)** — tool calls failed mid-session | Trimmed entries, consolidated duplicates, removed task narratives |
-| **Profile memory isolation** — planner profile had no memory context | Symlinked memory files from default profile so all profiles share context |
-| **Dashboard model mismatch** — dashboard UI overrode config.yaml model | Manual check required — config.yaml is not the only model source |
-| **Token cost from long sessions** | Two-phase workflow + compression threshold = 80% savings |
+| Long sessions cost ~$0.50-1.00 each | **Two-Phase Workflow** — Plan (cheap MiniMax) → Execute (DeepSeek). Saves ~80% on tokens |
+| Context windows hit 700K+ tokens | **Compression threshold at 35%** — compress earlier, keep sessions lean |
+| Every planning session burned tokens | **Read-only Phase 1** — no tool execution overhead during planning |
+
+### The Resource Constraint
+| Challenge | Solution |
+|-----------|----------|
+| Only 8 GB RAM on VPS | **Docker Compose** — lightweight containers, rebuild-from-source, no heavy VMs |
+| $40/month total budget | **Model routing** — MiniMax for planning ($0.15/M), DeepSeek for execution ($0.40/M) |
+| 80 GB SSD | **Database pruning** — session cleanup, log rotation, git-based artifact storage |
+
+### The Reliability Problem
+| Challenge | Solution |
+|-----------|----------|
+| Containers crash, API keys expire | **Kanban→Telegram bridge** — completions surface to DM automatically |
+| Execution silently diverges from plan | **"Execute Jarvis" gate** — any error stops, re-plans, requires fresh approval |
+| Can't monitor 24/7 manually | **Zero-token cron** — `no_agent` mode scripts that only fire when there's something to report |
+
+### The Knowledge Growth Problem
+| Challenge | Solution |
+|-----------|----------|
+| 500+ skills, hard to maintain | **Curator consolidation** — auto-merges overlapping skills |
+| New AI tools appear weekly | **AI Tool Scout** (planned) — weekly scan + integration proposals |
+| Profile memory isolation | **Symlinked memory** — all profiles share context |
 
 ---
 
-## 🗺️ Next Evolution Plans
+## 🗺️ One-Year Evolution Plan
 
-### Phase 1 — Immediate (Current)
-- [x] Two-phase workflow with "Execute Jarvis" gate
-- [x] PMO-style response format with working memory tables
-- [x] Kanban→Telegram completion bridge
-- [x] Config optimization (smart approvals, compression, curator)
-- [x] Hermes brain git repo (this repo)
+### ✅ Phase 1 — Foundation (Complete)
+- [x] Telegram gateway — real-time messaging with JARVIS
+- [x] Hermes signal parsing — text + image-based trading signals
+- [x] MT5 execution pipeline — observe-only, guardrails, kill switch
+- [x] Two-Phase Workflow — Plan → Execute with "Execute Jarvis" gate
+- [x] Multi-agent workforce — Planner, Developer, Researcher, Trader
+- [x] Kanban task queue with auto-dispatcher
+- [x] Smart approval mode — low-risk commands auto-approved
+- [x] Context compression at 35% threshold
+- [x] SOUL.md identity, memory, user profile, all profiles ready
+- [x] Hermes brain git repo — version-controlled identity
 
-### Phase 2 — Short Term
-- [ ] **Ultron Dashboard** — 3D holographic visualizer showing Jarvis state (agent status, active tasks, system health)
-- [ ] **Daily health cron** — automated container + disk + memory check via health profile
-- [ ] **Signal digest** — daily summary of trade-copier activity
-- [ ] **Weekly AI tool scan** — AI Scout profile scanning for new tools
-- [ ] **Session token monitor** — alert when sessions exceed 200K tokens
+### 🔄 Phase 2 — Self-Monitoring (Next)
+- [ ] **Docker container monitoring** — automated health checks, restart on crash
+- [ ] **Log summarization** — daily digest of router/bridge/listener logs
+- [ ] **Automatic health reports** — systemd, disk, memory, uptime → Telegram DM
+- [ ] **Trade analytics** — daily win/loss, signal accuracy, channel performance
+- [ ] **Kill switch watch** — monitor trigger conditions, auto-alert on anomaly
 
-### Phase 3 — Medium Term
-- [ ] **Paper trading** — flip the trade-copier from observe to paper mode
-- [ ] **Content automation pipeline** — script generation, asset creation, scheduling
-- [ ] **MCP server integrations** — extend Hermes with custom tool servers
-- [ ] **Multi-VPS orchestration** — spread agents across machines
+### 🚀 Phase 3 — Developer Experience
+- [ ] **Code understanding** — full repo semantic search across trade-copier + hermes-brain
+- [ ] **Git integration** — auto-commit summaries, PR descriptions, changelog generation
+- [ ] **Documentation generation** — skills auto-document their interfaces
+- [ ] **Configuration audits** — detect drift between repo and production configs
+- [ ] **Automated testing** — pre-deploy test suite for router/bridge/listener
 
-### Phase 4 — Long Term
-- [ ] **Live trading** — real capital with position caps, kill switch, and full audit trail
-- [ ] **Self-improving workflows** — curator auto-optimizes skills based on usage patterns
-- [ ] **Mobile dashboard** — Jarvis state on your phone via Ultron web app
+### 🌐 Phase 4 — Content & Research
+- [ ] **YouTube content pipeline** — script generation, asset creation, scheduling
+- [ ] **Browser automation** — OpenClaw/Codex for broker portals, website management
+- [ ] **Personal assistant skills** — calendar, email, research synthesis
+- [ ] **AI Tool Scout** — weekly scan for new AI tools, frameworks, models
+- [ ] **Agent Tutor** — teaches you how the system works, cross-references against installed stack
+
+### 🧠 Phase 5 — True Autonomy
+- [ ] **Multi-agent orchestration** — agents spawn agents, parallel workstreams
+- [ ] **Long-term memory** — hierarchical memory: working → short-term → archived
+- [ ] **Workflow planning** — JARVIS proposes improvements, not just executes tasks
+- [ ] **Human approval for sensitive actions** — graduated trust levels per domain
+- [ ] **Self-optimizing model routing** — picks the cheapest capable model per task
+- [ ] **Weekly AI ecosystem audit** — finds better tools/services, proposes upgrades
+- [ ] **Ultron dashboard** — 3D holographic visualizer of JARVIS state
+
+---
+
+## 🧪 Weekly AI Ecosystem Optimization
+
+One of the most powerful planned capabilities is the **AI Tool Scout** — a weekly agent that:
+
+1. **Scans** — searches for new AI tools, models, frameworks published that week
+2. **Evaluates** — cross-references against the current stack
+3. **Proposes** — suggests upgrades if a new tool is cheaper, faster, or more capable
+4. **Tutors** — explains the new capability and how it fits into JARVIS
+
+This keeps the system constantly evolving — the best tool for each job, always.
 
 ---
 
@@ -143,42 +259,38 @@ Unlike a chatbot you talk to once, Jarvis has **persistent memory**, **reusable 
 
 ```
 hermes-brain/
-├── SOUL.md                    # Agent identity — loaded every session
+├── SOUL.md                    # Agent identity — who JARVIS is
 ├── config.yaml                # Hermes configuration (no secrets)
 ├── .gitignore                 # Blocks secrets, DBs, logs, sessions
-├── profiles/                  # Per-role agent identities
-│   ├── planner/               # Phase 1 — read-only, minimax, Kanban
-│   ├── developer/             # Phase 2 — code, git, skills
-│   ├── researcher/            # Deep-dive research, web + browser
+├── profiles/                  # Workforce identities
+│   ├── planner/               # Phase 1 — read-only, MiniMax, Kanban
+│   ├── developer/             # Phase 2 — code, DeepSeek, skills
+│   ├── researcher/            # Deep-dive, web + browser
 │   └── trader/                # MT5 monitoring, observe-only
-├── scripts/                   # Automation scripts
-│   └── kanban_bridge.py       # Kanban→Telegram completion bridge
-├── skills/                    # 22 categories, 500+ files
+├── scripts/                   # Automation (no-agent cron)
+│   └── kanban_bridge.py       # Task completion → Telegram bridge
+├── skills/                    # Procedural memory — 22 categories
 │   ├── trading/               # Trade-copier pipeline
 │   ├── software-development/  # Workflows, debugging, TDD
 │   ├── creative/              # Design, media, visualization
 │   ├── research/              # arXiv, web scraping, paper writing
-│   ├── github/                # PRs, issues, code review
-│   └── ... (17 more)
+│   └── ... (18 more categories)
 └── trade-copier/
-    └── .hermes.md             # Project context for trade-copier
+    └── .hermes.md             # Project context
 ```
 
 ---
 
-## 🔐 Security
+## 🔐 Security Model
 
-- **No secrets in this repo.** API keys, tokens, and passwords live in `.env` (excluded by `.gitignore`)
-- **Secret redaction** is ON by default in Hermes — API keys are masked in tool output
-- **Smart approval mode** — only genuinely dangerous commands prompt for confirmation
-- **Least privilege** — each profile has only the tools it needs (trader has no browser, planner has no terminal)
-
----
-
-## 📝 License
-
-Private — Sam Winston © 2026
+- **Least privilege** — Trader has terminal + memory only. Planner has no terminal. Developer has full stack.
+- **Secret redaction** — API keys masked in tool output by default
+- **Smart approvals** — low-risk commands auto-approved, dangerous ones prompt you
+- **"Execute Jarvis" gate** — every execution starts with explicit approval
+- **No secrets in git** — `.env` and `*.db` in `.gitignore`
 
 ---
 
-*Built with [Hermes Agent](https://github.com/NousResearch/hermes-agent) by Nous Research*
+*Built with [Hermes Agent](https://github.com/NousResearch/hermes-agent) by Nous Research — the open-source framework that makes self-evolving AI possible.*
+
+*Running 24/7 on a $40/month VPS, proving you don't need enterprise budgets for enterprise AI.*
