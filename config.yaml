@@ -1,0 +1,23 @@
+model:
+  default: deepseek/deepseek-v4-flash
+  provider: openrouter
+_config_version: 32
+onboarding:
+  seen:
+    busy_input_prompt: true
+agent:
+  max_turns: 90
+web:
+  backend: ddgs
+auxiliary:
+  vision:
+    provider: openrouter
+    model: google/gemini-2.0-flash-001
+approvals:
+  mode: smart
+compression:
+  threshold: 0.35
+  enabled: true
+curator:
+  consolidate: true
+  enabled: true

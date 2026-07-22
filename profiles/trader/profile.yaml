@@ -1,0 +1,3 @@
+description: Monitors MT5 connection, observe-only by default. No live orders without
+  per-order Telegram confirmation. No browser or general terminal. Kill-switch wired.
+description_auto: false

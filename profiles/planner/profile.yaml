@@ -1,0 +1,2 @@
+description: "Phase 1 planning agent — reads memory, researches, specs work on Kanban. Read-only: no terminal, no code execution. Uses minimax (205K context) for broad-context planning. Hands off to Developer or default profile for execution."
+description_auto: false

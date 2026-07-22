@@ -1,0 +1,52 @@
+# Secrets — never commit these
+.env
+.env.*
+auth.json
+auth.lock
+*.key
+
+# Databases — session/task runtime state
+*.db
+*.db-shm
+*.db-wal
+
+# Runtime state
+sessions/
+memories/
+logs/
+cache/
+cron/output/
+state/
+gateway_state.json
+processes.json
+channel_directory.json
+pairing/
+response_store.db*
+provider_models_cache.json
+models_dev_cache.json
+verification_evidence.db
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Node
+node_modules/
+.next/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+*.code-workspace
+
+# Generated
+.skills_prompt_snapshot.json

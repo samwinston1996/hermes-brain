@@ -1,0 +1,23 @@
+model:
+  default: deepseek/deepseek-v4-flash
+  provider: openrouter
+  base_url: https://openrouter.ai/api/v1
+  api_mode: chat_completions
+toolsets:
+  web: false
+  browser: false
+  terminal: true
+  file: false
+  code_execution: false
+  memory: true
+  skills: false
+terminal:
+  backend: docker
+  cwd: /home/trader/workspace
+  timeout: 600
+  docker_image: nikolaik/python-nodejs:python3.11-nodejs20
+  docker_volumes:
+    - /home/trader/workspace:/home/trader/workspace
+onboarding:
+  seen:
+    tool_progress_prompt: true
