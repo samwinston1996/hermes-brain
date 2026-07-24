@@ -12,7 +12,6 @@ auth.lock
 
 # Runtime state
 sessions/
-memories/
 logs/
 cache/
 cron/output/
