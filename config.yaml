@@ -19,5 +19,5 @@ compression:
   threshold: 0.35
   enabled: true
 curator:
-  consolidate: true
+  consolidate: false
   enabled: true
