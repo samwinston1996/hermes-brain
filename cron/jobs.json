@@ -1,4 +1,15 @@
 {
-  "jobs": [],
-  "updated_at": "2026-07-23T14:18:08.559302+00:00"
+  "jobs": [
+    {
+      "id": "listener-restart",
+      "name": "listener-restart",
+      "description": "Restart Telethon listener every 4h to prevent per-channel subscription fade",
+      "schedule": "every 240m",
+      "type": "script",
+      "script": "listener-restart.sh",
+      "no_agent": true,
+      "deliver": "local"
+    }
+  ],
+  "updated_at": "2026-07-26T15:20:00+00:00"
 }
