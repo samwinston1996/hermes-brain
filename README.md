@@ -1,6 +1,6 @@
 # 🧠 JARVIS — The Self-Evolving AI Organism
 
-> *Not a chatbot. Not a tool. A living system that writes its own code, hires its own workforce, and manages everything — 24/7, on a $40/month VPS.*
+> *Not a chatbot. Not a tool. A living system that writes its own code, hires its own workforce, and manages everything — 24/7, on a $8/month VPS.*
 
 ---
 
@@ -17,7 +17,7 @@ While most AI agents are single-purpose chatbots or code assistants, JARVIS is a
 - ⏰ **Schedules** — Runs 24/7 cron tasks with zero-token cost when idle
 - 📊 **Observes** — Monitors trading pipelines, system health, and itself
 
-It runs on a **$40/month VPS** — a fraction of what a single Claude Code session costs per hour — and was designed from day one to operate within those constraints.
+It runs on a **$8/month VPS** — a fraction of what a single Claude Code session costs per hour — and was designed from day one to operate within those constraints.
 
 ---
 
@@ -27,7 +27,7 @@ It runs on a **$40/month VPS** — a fraction of what a single Claude Code sessi
 
 | Component | Spec | Why |
 |-----------|------|-----|
-| **VPS** | $40/month cloud instance | Full root access, 24/7 uptime, Docker support |
+| **VPS** | $8/month cloud instance | Full root access, 24/7 uptime, Docker support |
 | **RAM** | 8 GB | Enough for Hermes + MT5 + 4 pipeline containers |
 | **Storage** | 80 GB SSD | Skills, sessions, Kanban DB, Docker images |
 | **OS** | Linux (Ubuntu 24.04) | Docker-native, low overhead, cron-ready |
@@ -150,7 +150,7 @@ This philosophy drove every architecture decision:
 | **Self-modification** | Manual | Manual | ✅ Writes skills, patches itself, installs tools |
 | **24/7 operation** | ❌ No | ❌ No | ✅ VPS-hosted, watchdog-protected |
 | **Token budget control** | ❌ No | ❌ No | ✅ Compression threshold, two-phase workflow, model routing |
-| **Cost** | ~$3-10/hr | ~$2-8/hr | **~$40/month all-in** |
+| **Cost** | ~$3-10/hr | ~$2-8/hr | **~$8/month all-in** |
 
 ### The Three Pillars of a Self-Evolving AI
 
@@ -164,7 +164,7 @@ This philosophy drove every architecture decision:
 
 ## ⚡ Evolutionary Challenges (That Made Us Stronger)
 
-Building a persistent AI organism on a $40/month VPS meant we couldn't throw money at problems. Every constraint became an innovation.
+Building a persistent AI organism on a $8/month VPS meant we couldn't throw money at problems. Every constraint became an innovation.
 
 ### The Token Budget Problem
 | Challenge | Solution |
@@ -177,7 +177,7 @@ Building a persistent AI organism on a $40/month VPS meant we couldn't throw mon
 | Challenge | Solution |
 |-----------|----------|
 | Only 8 GB RAM on VPS | **Docker Compose** — lightweight containers, rebuild-from-source, no heavy VMs |
-| $40/month total budget | **Model routing** — MiniMax for planning ($0.15/M), DeepSeek for execution ($0.40/M) |
+| $8/month total budget | **Model routing** — MiniMax for planning ($0.15/M), DeepSeek for execution ($0.40/M) |
 | 80 GB SSD | **Database pruning** — session cleanup, log rotation, git-based artifact storage |
 
 ### The Reliability Problem
@@ -293,4 +293,4 @@ hermes-brain/
 
 *Built with [Hermes Agent](https://github.com/NousResearch/hermes-agent) by Nous Research — the open-source framework that makes self-evolving AI possible.*
 
-*Running 24/7 on a $40/month VPS, proving you don't need enterprise budgets for enterprise AI.*
+*Running 24/7 on a $8/month VPS, proving you don't need enterprise budgets for enterprise AI.*
